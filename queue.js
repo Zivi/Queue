@@ -20,4 +20,32 @@ function Queue() {
     };
   };
 
+  this.deQueue = function() {
+    if (this.start === null) {
+      return null;
+    };
+    var prev = null;
+    var node = this.start;
+
+    while (node.next != null) {
+      prev = node;
+      node = node.next;
+    };
+    if (prev === null) {
+      this.start = null;
+    } else {
+      prev.next = null;
+    };
+    return node.val;
+  };
+
+  this.size = function() {
+    var node = this.start;
+    var counter = 0;
+    while (node != null) {
+      counter ++;
+      node = node.next;
+    };
+    return counter;
+  };
 };
